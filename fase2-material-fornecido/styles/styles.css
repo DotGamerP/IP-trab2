@@ -1,0 +1,107 @@
+.label {
+    -fx-alignment: center;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial"; 
+    -fx-text-fill: black;
+}
+
+.label-custom {
+    -fx-alignment: center;
+    -fx-border-width: 2px;
+    -fx-padding: 10px; 
+    -fx-text-fill: black;
+	-fx-font-weight: bold;
+	-fx-background-color: white; 
+	-fx-border-color: #A4AEC4;
+    -fx-opacity: 0.5;
+}
+
+.label-custom-selected {
+    -fx-border-width: 4px;
+    -fx-border-color: black;/*FF0000*/
+}
+
+.text-field{
+	-fx-alignment: center;
+    -fx-border-width: 2px;
+    -fx-font-size: 20px; 
+    -fx-padding: 10px;
+	-fx-font-weight: bold; 
+	-fx-background-color: white; 
+	-fx-border-color: #A4AEC4; 
+	-fx-border-radius: 5; 
+	-fx-background-radius: 5;
+}
+
+.button{
+	-fx-alignment: center;
+    -fx-border-width: 2px;
+    -fx-padding: 10px; 
+	-fx-font-weight: bold; 
+	-fx-border-color: #A4AEC4; 
+	-fx-border-radius: 5px; 
+	-fx-background-radius: 10px;
+	-fx-font-size: 18px;
+    -fx-text-fill: #ffffff; 
+    -fx-background-color: #1982c4;
+    -fx-background-insets: 0, 2; 
+}
+
+.button:hover {
+    -fx-background-color: #6ab4e8;
+}
+
+.button#back{
+	-fx-background-image: url('../img/previous.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 20px 20px; 
+    -fx-text-fill: transparent; 
+	-fx-background-color: #ff595e; 
+}
+
+.button#back:hover {
+    -fx-background-color: #ff878c;
+}
+
+.button#reset{ 
+	-fx-background-image: url('../img/reset_arrow.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 20px 20px; /* Adjust the size as needed */
+    -fx-text-fill: transparent; /* Hide the button's text */
+    -fx-background-color: #8ac926;
+}
+
+.button#reset:hover {
+    -fx-background-color: #a4df8e;
+}
+
+.vbox {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-background-color: #f2f2f2;
+}
+
+.label {
+    -fx-font-size: 20px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+.radio-button {
+    -fx-font-size: 16px;
+    -fx-padding: 5 10;
+    -fx-text-fill: #007acc; 
+}
+
+.radio-button:selected {
+    -fx-text-fill: #00aaff; 
+}
+
+.color-circle {
+    -fx-alignment: center;
+    -fx-padding: 100 ;
+}
+

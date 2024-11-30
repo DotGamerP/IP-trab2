@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" styleClass="vbox" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
+	<children>
+		<Label styleClass="label" text="Select the grid size:" />
+      <ComboBox fx:id="gridSizeSelector" prefWidth="150.0" />
+		<Button fx:id="startGameButton" mnemonicParsing="false" onAction="#startGame" styleClass="button" text="Start Game" />
+	</children>
+</VBox>
