@@ -2,24 +2,49 @@ public class SumdokuPuzzle{
     
     // We must have the two main attributes for this object
     private int[][] groupMembership; // The matrix that defines each square's group
-    private int[] groupValues; // The vector that defines each group's total values sum
+    private int[] groupsValues; // The vector that defines each group's total values sum
     
     // For simplicity, we can also use a variable for the size of the puzzle
     private int puzzleSize;
 
-    public static boolean definesPuzzle(int[][] groupMembership, int[] groupValues){
+    public static boolean definesPuzzle(int[][] groupMembership, int[] groupsValues){
+        
+        // We create a variable to store this temporary puzzle size
+        int size = groupMembership.length;
+
+        // We verify if groupMembership size is between 3 and 9
         //
-        return false;
+
+        // We verify if groupMembership is a square matrix (size*size)
+        //
+
+        // We verify that the length of groupsValues is between 1 and size*size
+        //
+
+        // We verify that every value in groupsValues is between 1 and [size^3+size^2]/2 (in the case there's only one group)
+        //
+
+        // We verify that every value in groupMembership is between 0 and the number of groups minus 1
+        //
+
+        // We verify that there is at least one square of the puzzle for each possible group described in groupsValues
+        //
+
+        // We verify if the puzzle has only one possible solution using the SumdokuSolver class
+        //
+
+        // If no problem has been found, then return true
+        return true;
     }
     
     /**
      * Creates a Sumdoku puzzle with the given group membership matrix and group values.
      * 
      * @param groupMembership a square two-dimensional matrix representing group memberships
-     * @param groupValues a one-dimensional array with the target sum for each group
-     * @requires {@code definesPuzzle(groupMembership, groupValues)}
+     * @param groupsValues a one-dimensional array with the target sum for each group
+     * @requires {@code definesPuzzle(groupMembership, groupsValues)}
      */
-    public SumdokuPuzzle(int[][] groupMembership, int[] groupValues){
+    public SumdokuPuzzle(int[][] groupMembership, int[] groupsValues){
 
         // We now have the puzzle size
         this.puzzleSize = groupMembership.length;
@@ -28,7 +53,7 @@ public class SumdokuPuzzle{
         this.groupMembership = copySquareIntMatrix(this.puzzleSize, groupMembership);
 
         // We'll now replicate each value in the vector groupValues to the groupValues atribute
-        this.groupValues = copyIntVector(groupValues);
+        this.groupsValues = copyIntVector(groupsValues);
     }
 
     /**
