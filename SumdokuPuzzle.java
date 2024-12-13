@@ -9,32 +9,55 @@ public class SumdokuPuzzle{
 
     public static boolean definesPuzzle(int[][] groupMembership, int[] groupsValues){
         
-        // We create a variable to store this temporary puzzle size
+        // We create a variable to store the temporary puzzle size and the number of groups
         int size = groupMembership.length;
-
+        int numOfGroups = groupsValues.length;
+ 
         // We verify if groupMembership size is between 3 and 9
-        //
+        if (size < 3 || size > 9)
+            return false; // If not, then it doesn't defines a puzzle
 
         // We verify if groupMembership is a square matrix (size*size)
-        //
+        if (!isSquareIntMatrix(groupMembership))
+            return false; // If not...
 
-        // We verify that the length of groupsValues is between 1 and size*size
-        //
+        // We verify that the length of groupsValues (number of groups) is between 1 and size*size
+        if (numOfGroups < 1 || numOfGroups > size*size)
+            return false; // If not...
 
-        // We verify that every value in groupsValues is between 1 and [size^3+size^2]/2 (in the case there's only one group)
-        //
+        // We verify that every value in groupsValues is between 1 and [size^3+size^2]/2
+        int maxValue = (int) (Math.pow(size, 3) + Math.pow(size, 2))/2; // We first create a variable that can be forced to an integer because it won't never have decimal places
+        
+        if (!everyValueBetween(groupsValues, 1, maxValue))
+            return false; // If not...
 
         // We verify that every value in groupMembership is between 0 and the number of groups minus 1
-        //
+        if (!everyValueBetween(groupMembership, 0, numOfGroups - 1))
+            return false; // If not...
 
         // We verify that there is at least one square of the puzzle for each possible group described in groupsValues
-        //
+        // TODO
 
         // We verify if the puzzle has only one possible solution using the SumdokuSolver class
-        //
+        // TODO
 
         // If no problem has been found, then return true
         return true;
+    }
+
+    private static boolean isSquareIntMatrix(int[][] matrix){
+        
+        // TODO
+    }
+
+    private static boolean everyValueBetween(int[] array, int minValue, int maxValue){
+
+        // TODO
+    }
+
+    private static boolean everyValueBetween(int[][] matrix, int minValue, int maxValue){
+
+        // TODO
     }
     
     /**
@@ -103,42 +126,42 @@ public class SumdokuPuzzle{
     }
 
     public int size(){
-        //
+        // TODO
         return 0;
     }
 
     public int numberOfGroups(){
-        //
+        // TODO
         return 0;
     }
 
     public int groupNumber(int col, int row){
-        //
+        // TODO
         return 0;
     }
 
     public int valueGroup(int group){
-        //
+        // TODO
         return 0;
     }
 
     public boolean isSolvedBy(SumdokuGrid playedGrid){
-        //
+        // TODO
         return false;
     }
 
     public boolean isPartiallySolvedBy(SumdokuGrid playedGrid){
-        //
+        // TODO
         return false;
     }
 
     public String cluesToString(){
-        //
+        // TODO
         return "";
     }
 
     public String toString(){
-        //
+        // TODO
         return "";
     }
 }
