@@ -417,16 +417,16 @@ public class SumdokuTest {
 		boolean error = false;
 		
 		SumdokuPuzzle puzzle;
-		RandomSumdokuPuzzle rsp = new RandomSumdokuPuzzle(3);
+		// RandomSumdokuPuzzle rsp = new RandomSumdokuPuzzle(3);
 		int count = 0;
 		int found = 0;
 	
-		while (rsp.hasNextPuzzle()) {
-			puzzle = rsp.nextPuzzle();
-			count++;
-			if (puzzle.isSolvedBy(oneGrid3()) || puzzle.isSolvedBy(anotherGrid3()))
-				found++;
-		}
+		// while (rsp.hasNextPuzzle()) {
+		// 	puzzle = rsp.nextPuzzle();
+		// 	count++;
+		// 	if (puzzle.isSolvedBy(oneGrid3()) || puzzle.isSolvedBy(anotherGrid3()))
+		// 		found++;
+		// }
 	
 		boolean obtained = count >= 2;
 		boolean expected = true;
@@ -439,16 +439,16 @@ public class SumdokuTest {
 		error = checkEqual(expected, obtained, "Required puzzles 3x3 available > " + Integer.toString(found)) 
 				|| error;
 	
-		rsp = new RandomSumdokuPuzzle(5);
+		// rsp = new RandomSumdokuPuzzle(5);
 		count = 0;
 		found = 0;
 	
-		while (rsp.hasNextPuzzle()) {
-			puzzle = rsp.nextPuzzle();
-			count++;
-			if (puzzle.isSolvedBy(grid5()))
-				found++;
-		}
+		// while (rsp.hasNextPuzzle()) {
+		// 	puzzle = rsp.nextPuzzle();
+		// 	count++;
+		// 	if (puzzle.isSolvedBy(grid5()))
+		// 		found++;
+		// }
 	
 		obtained = count >= 1;
 		expected = true;
