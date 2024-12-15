@@ -87,6 +87,6 @@ public class SumdokuGrid {
      */
     public boolean isFilled(int row, int column){
         
-        return grid[row - 1][column - 1] != 0;
+        return this.grid[row - 1][column - 1] != 0;
     }
 }
