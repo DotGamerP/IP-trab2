@@ -217,8 +217,8 @@ public class SumdokuPuzzle{
 
         // In each position, we'll replicate the base matrix's values
         for (int i = 0; i < puzzleSize; i++){
-            for (int j = 0; j < puzzleSize; i++){
-            copy[i][j] = matrix[i][j];
+            for (int j = 0; j < puzzleSize; j++){
+                copy[i][j] = matrix[i][j];
             }
         }
 
@@ -239,7 +239,7 @@ public class SumdokuPuzzle{
         int[] copy = new int[vector.length];
 
         // In each position, we'll replicate the base vector's values
-        for (int i = 0; i < puzzleSize; i++){
+        for (int i = 0; i < vector.length; i++){
             copy[i] = vector[i];
         }
 
@@ -344,7 +344,7 @@ public class SumdokuPuzzle{
             for (int c = 0; c < this.puzzleSize; c++){
 
                 // If the values are different, we'll return false
-                if (playedGrid.value(r, c) != solution[r][c])
+                if (playedGrid.value(r + 1, c + 1) != solution[r][c])
                     return false;
             }
         }
@@ -394,7 +394,7 @@ public class SumdokuPuzzle{
             for (int c = 0; c < this.puzzleSize; c++){
 
                 // If the values are different, we'll return false (except if the excludedValue is in any of both object's position)
-                if (playedGrid.value(r, c) != solution[r][c] && !(playedGrid.value(r, c) == excludedValue || solution[r][c] == excludedValue))
+                if (playedGrid.value(r + 1, c + 1) != solution[r][c] && !(playedGrid.value(r + 1, c + 1) == excludedValue || solution[r][c] == excludedValue))
                     return false;
             }
         }
@@ -446,7 +446,7 @@ public class SumdokuPuzzle{
         result.append(arrayToString(matrix[0], incrementation));
 
         // We'll now add the rest of the rows with a line break, a starting mark and the row with our incrementation on each value (using 'arrayToString')
-        for (int r = 0; r < matrix.length; r++){
+        for (int r = 1; r < matrix.length; r++){
             result.append("\n");
             result.append(startingMark);
             result.append(arrayToString(matrix[r], incrementation));
@@ -495,14 +495,14 @@ public class SumdokuPuzzle{
         // We'll first create a StringBuilder that we'll be editing throught this function
         StringBuilder result = new StringBuilder();
 
-        // We'll first append the clue of the group 1, that is always there
-        result.append(groupClue(groupsValues, 1));
-
-        // Now, we can append the clues of every other group (this time with a space before the clue)
-        for (int g = 2; g <= groupsValues.length; g++){
-            result.append(" ");
+        // We can append the clues of every group
+        for (int g = 1; g <= groupsValues.length; g++){
             result.append(groupClue(groupsValues, g));
+            result.append(" ");
         }
+
+        // Following the project tests, we must end with a line break
+        result.append("\n");
 
         // We finally return our result converted to a String
         return result.toString();
@@ -575,7 +575,7 @@ public class SumdokuPuzzle{
         result.append(arrayToString(matrix[0]));
 
         // We'll now add the rest of the rows with a line break and the row (using 'arrayToString')
-        for (int r = 0; r < matrix.length; r++){
+        for (int r = 1; r < matrix.length; r++){
             result.append("\n");
             result.append(arrayToString(matrix[r]));
         }
