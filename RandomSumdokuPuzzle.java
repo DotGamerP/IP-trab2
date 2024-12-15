@@ -12,15 +12,17 @@ public class RandomSumdokuPuzzle {
 
     
     private void shufflePuzzles() {
-    Random random = new Random();
-    for (int i = puzzlesArray.length - 1; i > 0; i--) {
-        int j = random.nextInt(i + 1);
-        SumdokuPuzzle temp = puzzlesArray[i];
-        puzzlesArray[i] = puzzlesArray[j];
-        puzzlesArray[j] = temp;
+        if (puzzlesArray != null && puzzlesArray.length > 1) {
+            Random random = new Random();
+            for (int i = puzzlesArray.length - 1; i > 0; i--) {
+                int j = random.nextInt(i + 1);
+                SumdokuPuzzle temp = puzzlesArray[i];
+                puzzlesArray[i] = puzzlesArray[j];
+                puzzlesArray[j] = temp;
+            }
+        }
     }
-    }
-    
+
     public RandomSumdokuPuzzle(int size){
         
         this.gridSize=size;
