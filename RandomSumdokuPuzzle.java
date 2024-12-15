@@ -48,8 +48,8 @@ public class RandomSumdokuPuzzle {
         int[][][] puzzlesMembership;
         int[][] puzzlesValues;
 
-        puzzlesMembership = new int[][][] {{{0,1,2},{1,2,0},{2,0,1}},{{0,0,2},{0,1,2},{3,3,4}}};
-        puzzlesValues = new int[][] {{5, 5, 2, 5, 1},{5,2,5,5,1}};
+        puzzlesMembership = new int[][][] {{{0,0,0},{0,0,1},{0,1,1}},{{0,0,2},{0,1,2},{3,3,4}}};
+        puzzlesValues = new int[][] {{14,4},{5,2,5,5,1}};
         SumdokuPuzzle[] puzzles = new SumdokuPuzzle[puzzlesMembership.length];
         for (int i = 0; i < puzzlesMembership.length; i++) {
             puzzles[i] = new SumdokuPuzzle(puzzlesMembership[i], puzzlesValues[i]);
@@ -62,13 +62,9 @@ public class RandomSumdokuPuzzle {
         int[][][] puzzlesMembership;
         int[][] puzzlesValues;
         puzzlesMembership = new int[][][]{{
-            {0, 0, 0, 1, 1},
-            {2, 2, 0, 1, 1},
-            {2, 2, 3, 3, 4},
-            {5, 5, 3, 4, 4},
-            {5, 5, 6, 6, 6}
+            {0,0,0,1,2},{3,3,0,1,2},{4,5,6,6,7},{4,5,8,8,7},{9,9,9,10,10}
         }};
-        puzzlesValues = new int[][] {{10, 8, 6, 7, 9, 10, 12}};
+        puzzlesValues = new int[][] {{14,3,5,8,5,3,9,8,5,8,7}};
         SumdokuPuzzle[] puzzles = new SumdokuPuzzle[puzzlesMembership.length];
         
         

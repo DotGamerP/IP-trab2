@@ -314,18 +314,20 @@ public class SumdokuPuzzle{
         // Because we only have one possible solution for this puzzle, we will find it using the SumdokuSolver class
         SumdokuSolver sumdokuSolver = new SumdokuSolver(this.groupMembership, this.groupsValues);
         int[][] solution = sumdokuSolver.findSolutions(1)[0];
+        
+        
         /* After investigating the documentation of SumdokuSolver's class, I can
          * suppose that the method 'findSolutions' returns a three-dimension
          * matrix instead of a two-dimension because the first one is to indicate
          * which of the solutions we're talking about. That's why I suppose that
          * if we have the index 0 in the first dimension, we're referring to the
          * first and, in this case, only possible solution. */
-
         // Now, we must compare each value of the playedGrid with the ones in the solution
+
         if (!hasSameValues(playedGrid, solution)){
             return false; // If the values of the matrix and SumdokuGrid are different, we return false
         }
-
+        
         return true; // If everything went smoothly, the playedGrid solves the puzzle
     }
 
