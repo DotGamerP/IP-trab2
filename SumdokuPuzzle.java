@@ -417,7 +417,7 @@ public class SumdokuPuzzle{
         result.append(matrixToString(this.groupMembership, " ", 1)); // Note that these two addittional arguments will be explained on the function's javadoc
         
         // We add a line break
-        result.append("\n")
+        result.append("\n");
 
         // We now add the groups clues
         result.append(groupsClues(this.groupsValues));
