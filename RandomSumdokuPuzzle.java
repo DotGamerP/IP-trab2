@@ -14,7 +14,9 @@ public class RandomSumdokuPuzzle {
     private void shufflePuzzles() {
         if (puzzlesArray != null && puzzlesArray.length > 1) {
             Random random = new Random();
+            
             for (int i = puzzlesArray.length - 1; i > 0; i--) {
+                
                 int j = random.nextInt(i + 1);
                 SumdokuPuzzle temp = puzzlesArray[i];
                 puzzlesArray[i] = puzzlesArray[j];
@@ -22,7 +24,15 @@ public class RandomSumdokuPuzzle {
             }
         }
     }
-
+    
+    /**
+     * Constructor that initializes the {@code RandomSumdokuPuzzle} object with a set of puzzles
+     * of the specified grid size. The puzzles are shuffled randomly upon initialization.
+     *
+     * @param size the size of the puzzle grid (e.g., 3, 5, or 6).
+     *             If the size is not supported, no puzzles will be initialized.
+     * @ensures Puzzles are initialized and shuffled if the size is valid.
+     */ 
     public RandomSumdokuPuzzle(int size){
         
         this.gridSize=size;
@@ -44,6 +54,13 @@ public class RandomSumdokuPuzzle {
         shufflePuzzles();
     }
     
+    /**
+     * Retrieves the array of 3x3 Sumdoku puzzles.
+     *
+     * @return an array of {@code SumdokuPuzzle} objects for 3x3 grids.
+     * @requires Predefined membership and value arrays for 3x3 puzzles.
+     * @ensures A fully initialized array of {@code SumdokuPuzzle} objects is returned.
+     */
     private SumdokuPuzzle[] getPuzzlesSize3(){
         int[][][] puzzlesMembership;
         int[][] puzzlesValues;
@@ -57,7 +74,14 @@ public class RandomSumdokuPuzzle {
 
         return puzzles;
     }
-
+        
+    /**
+     * Retrieves the array of 5x5 Sumdoku puzzles.
+     *
+     * @return an array of {@code SumdokuPuzzle} objects for 5x5 grids.
+     * @requires Predefined membership and value arrays for 5x5 puzzles.
+     * @ensures A fully initialized array of {@code SumdokuPuzzle} objects is returned.
+     */
     private SumdokuPuzzle[] getPuzzlesSize5(){
         int[][][] puzzlesMembership;
         int[][] puzzlesValues;
@@ -75,6 +99,13 @@ public class RandomSumdokuPuzzle {
         return puzzles;
     }
 
+    /**
+     * Retrieves the array of 6x6 Sumdoku puzzles.
+     *
+     * @return an array of {@code SumdokuPuzzle} objects for 6x6 grids.
+     * @requires Predefined membership and value arrays for 6x6 puzzles.
+     * @ensures A fully initialized array of {@code SumdokuPuzzle} objects is returned.
+     */    
     private SumdokuPuzzle[] getPuzzlesSize6(){
         int[][][] puzzlesMembership;
         int[][] puzzlesValues;
@@ -98,16 +129,33 @@ public class RandomSumdokuPuzzle {
     }
 
    
-
+    /**
+     * Retrieves the grid size of the puzzles.
+     *
+     * @return the size of the grid.
+     * @requires The grid size must have been set during object initialization.
+     */
     public int size(){
         return this.gridSize;
     }
 
+    /**
+     * Checks if there are more puzzles available in the sequence.
+     *
+     * @return true if there are more puzzles, false otherwise.
+     */
     public boolean hasNextPuzzle(){
         return this.counter < this.puzzlesArray.length;
         
     }
 
+    /**
+     * Retrieves the next puzzle in the sequence.
+     *
+     * @return the next {@code SumdokuPuzzle} if available;  null if no more puzzles exist.
+     * @requires There must be a next puzzle available.
+     * @ensures The counter is incremented if a puzzle is returned.
+     */
     public SumdokuPuzzle nextPuzzle(){
 
         if(this.hasNextPuzzle()){
