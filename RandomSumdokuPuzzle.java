@@ -6,11 +6,16 @@ public class RandomSumdokuPuzzle {
 
 
     private SumdokuPuzzle[] puzzlesArray;
-
     private int counter = 0;
     private int gridSize;
 
-    
+    /**
+     * Shuffles the puzzles in the puzzlesArray randomly.
+     * This ensures that the order of puzzles is randomized.
+     *
+     * @requires The puzzles array must not be null and must contain more than one puzzle.
+     * @ensures The puzzles array is randomized in place.
+     */
     private void shufflePuzzles() {
         if (puzzlesArray != null && puzzlesArray.length > 1) {
             Random random = new Random();
