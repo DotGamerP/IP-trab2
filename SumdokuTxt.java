@@ -1,6 +1,14 @@
-import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * The {@code SumdokuTxt} consists in the class which contains the main section of the project
+ * 
+ * This is the second project of 2024 in IP (Introdução à Programação) on FCUL (Faculdade de Ciências - Universidade de Lisboa)
+ * 
+ * @author Pedro Reinaldo Mendes - nº63729
+ * @author Miguel Cabeça - nº63762
+ * @version 1.0
+ */  
 public class SumdokuTxt {
     
 
