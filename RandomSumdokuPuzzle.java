@@ -12,7 +12,7 @@ import java.util.Random;
 public class RandomSumdokuPuzzle {
 
     private SumdokuPuzzle[] puzzlesArray;
-    private int counter = 0;
+    private int counter = -1;
     private int gridSize;
 
     /**
@@ -64,15 +64,12 @@ public class RandomSumdokuPuzzle {
                 this.puzzlesArray = getPuzzlesSize6();  // Get puzzles for size 6
                 break;
             default:
-                this.puzzlesArray = null;  // Invalid size, set puzzlesArray to null
+                this.gridSize = 0;  // Invalid size, set puzzlesArray to null
                 break;
         }
     
         // Shuffle the puzzles array to randomize the order
         shufflePuzzles();
-    
-        // Set the current puzzle to the one at the counter's index
-        this.currentPuzzle = puzzlesArray[counter];
     }
     
     /**
@@ -209,10 +206,6 @@ public class RandomSumdokuPuzzle {
         return this.counter < this.puzzlesArray.length; // Return if it has a next puzzle
         
     }
-    
-    public SumdokuPuzzle getCurrentPuzzle(){
-        return puzzlesArray[counter]; // Return the curent puzzle
-    } 
 
     /**
      * Retrieves the next puzzle in the sequence.
@@ -222,13 +215,7 @@ public class RandomSumdokuPuzzle {
      * @ensures The counter is incremented if a puzzle is returned.
      */
     public SumdokuPuzzle nextPuzzle() {
-        // Check if there is a next puzzle available
-        if (this.hasNextPuzzle()) {
-            // Return the next puzzle and increment the counter
-            return this.puzzlesArray[counter++];
-        } else {
-            // Return null if there are no more puzzles
-            return null;
-        }
+        // Return the next puzzle and increment the counter
+        return this.puzzlesArray[counter++];
     }
 }
