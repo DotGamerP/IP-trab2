@@ -220,4 +220,14 @@ public class SumdokuTxt {
             System.out.println("Opps, tentativas esgotadas!");
         }
     }
+
+/*-------------------NOTE 2------------------------
+|                                                 |
+| We are not using @ensures in the majority of    |
+|    our javadocs because we believe it's         |
+|    information that we're making very           |
+|   clear through the method's descriptions       |
+|                                                 |
+-------------------------------------------------*/
+
 }
