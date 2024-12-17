@@ -14,7 +14,6 @@ public class RandomSumdokuPuzzle {
     private SumdokuPuzzle[] puzzlesArray;
     private int counter = 0;
     private int gridSize;
-    public SumdokuPuzzle currentPuzzle;
 
     /**
      * Shuffles the puzzles in the puzzlesArray randomly.
