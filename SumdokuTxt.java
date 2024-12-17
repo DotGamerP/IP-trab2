@@ -62,7 +62,7 @@ public class SumdokuTxt {
      * @param reader The Scanner to read user input.
      * @return true if the player wants to play again and there is another puzzle; false otherwise.
      */
-    public static boolean askPlayAgain(RandomSumdokuPuzzle puzzleArgs,Scanner reader){     
+    private static boolean askPlayAgain(RandomSumdokuPuzzle puzzleArgs,Scanner reader){     
         // Prompt the user if they want to play again
         System.out.println("Queres jogar outra vez (true/false):");
         
@@ -93,7 +93,7 @@ public class SumdokuTxt {
      * @return The row index of the square.
      * @requires square must be between 1 and gridSize^2; gridSize must be > 0.
      */
-    public static int rowOfSquare(int square, int gridSize) { 
+    private static int rowOfSquare(int square, int gridSize) { 
         // Calculate the row number based on the square's position in a grid
         int row = (square - 1) / gridSize + 1;
         // Return the calculated row number
@@ -108,7 +108,7 @@ public class SumdokuTxt {
      * @return The column index of the square.
      * @requires square must be between 1 and gridSize^2; gridSize must be > 0.
      */
-    public static int columnOfSquare(int square, int gridSize) {
+    private static int columnOfSquare(int square, int gridSize) {
         // Calculate the column number based on the square's position in a grid
         int column = (square - 1) % gridSize + 1;
         // Return the calculated column number
@@ -123,7 +123,7 @@ public class SumdokuTxt {
      * @param reader The Scanner to read user input.
      * @return An integer within the range [min, max].
      */
-    public static int readIntInInterval (int min, int max, Scanner reader) { 
+    private static int readIntInInterval (int min, int max, Scanner reader) { 
         // Read the initial input from the user
         int input = reader.nextInt();
         
@@ -146,7 +146,7 @@ public class SumdokuTxt {
      * @param reader    The Scanner to read user input.
      * @return The square number chosen by the player.
      */
-    public static int askSquarePosition(int totalSize,Scanner reader){
+    private static int askSquarePosition(int totalSize,Scanner reader){
         // Pede o numero da casa a preencher
         System.out.println("Casa a preencher?:");
         int casa=readIntInInterval(1, totalSize, reader);
@@ -160,7 +160,7 @@ public class SumdokuTxt {
      * @param reader The Scanner to read user input.
      * @return The value chosen by the player.
      */
-    public static int askValue(int size, Scanner reader){
+    private static int askValue(int size, Scanner reader){
         //Pede o valor que se quer preencher na casa escolhida
         System.out.println("Valor da casa a preencher?:");
         int valor=readIntInInterval(1,size, reader);
@@ -174,7 +174,7 @@ public class SumdokuTxt {
      * @param maxAttempts The maximum number of attempts the player has.
      * @param reader      The Scanner to read user input.
      */
-    static void play(SumdokuPuzzle puzzle, int maxAttempts,Scanner reader){
+    private static void play(SumdokuPuzzle puzzle, int maxAttempts,Scanner reader){
         int size = puzzle.size();
         final int LASTATTEMPT = 1;
         int totalSize=size*size;
