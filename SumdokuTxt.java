@@ -115,7 +115,6 @@ public class SumdokuTxt {
         return column;
     }
 
-
     /**
      * Reads an integer from the user, ensuring it is within a specified range.
      *
