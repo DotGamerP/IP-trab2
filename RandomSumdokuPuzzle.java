@@ -8,6 +8,7 @@ public class RandomSumdokuPuzzle {
     private SumdokuPuzzle[] puzzlesArray;
     private int counter = 0;
     private int gridSize;
+    public SumdokuPuzzle currentPuzzle;
 
     /**
      * Shuffles the puzzles in the puzzlesArray randomly.
@@ -56,7 +57,10 @@ public class RandomSumdokuPuzzle {
                 this.puzzlesArray = null;
             break;
         }
+        
         shufflePuzzles();
+
+        this.currentPuzzle = puzzlesArray[counter];
     }
     
     /**
@@ -153,6 +157,10 @@ public class RandomSumdokuPuzzle {
         return this.counter < this.puzzlesArray.length;
         
     }
+    
+    public SumdokuPuzzle getCurrentPuzzle(){
+        return puzzlesArray[counter];
+    } 
 
     /**
      * Retrieves the next puzzle in the sequence.
