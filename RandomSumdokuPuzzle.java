@@ -2,9 +2,6 @@ import java.util.Random;
 
 public class RandomSumdokuPuzzle {
     
-        
-
-
     private SumdokuPuzzle[] puzzlesArray;
     private int counter = 0;
     private int gridSize;
