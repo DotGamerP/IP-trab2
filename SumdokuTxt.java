@@ -28,27 +28,35 @@ public class SumdokuTxt {
         if (args.length > 0) {
             // Parse the first argument to get the puzzle size
             int defArgSize = Integer.parseInt(args[0]);
-            
-            // Create a RandomSumdokuPuzzle instance with the specified size
-            RandomSumdokuPuzzle puzzleArgs = new RandomSumdokuPuzzle(defArgSize);
-            
-            boolean validToContinue;
-            do {
-                validToContinue = false;
-                
-                // Calculate the full grid size (number of cells in the grid)
-                int fullGridSize = puzzleArgs.size() * puzzleArgs.size();
-                
-                // Start the game by playing the current puzzle
-                play(puzzleArgs.getCurrentPuzzle(), fullGridSize, scanner);
-                
-                // Ask the user if they want to play again
-                validToContinue = askPlayAgain(puzzleArgs, scanner);
 
-            } while (validToContinue);  // Continue if the user chooses to play again
-            
-            // Print a message when the user finishes playing
-            System.out.println("Obrigado por jogar!!!");
+            // We'll verify if the size is valid
+            if (defArgSize <= 5 && defArgSize >= 3){
+
+                // Create a RandomSumdokuPuzzle instance with the specified size (only if we have it)
+                RandomSumdokuPuzzle puzzleArgs = new RandomSumdokuPuzzle(defArgSize);
+
+                boolean validToContinue;
+                do {
+                    validToContinue = false;
+                    
+                    // Calculate the full grid size (number of cells in the grid)
+                    int fullGridSize = puzzleArgs.size() * puzzleArgs.size();
+                    
+                    // Start the game by playing the current puzzle
+                    play(puzzleArgs.getCurrentPuzzle(), fullGridSize, scanner);
+                    
+                    // Ask the user if they want to play again
+                    validToContinue = askPlayAgain(puzzleArgs, scanner);
+
+                } while (validToContinue);  // Continue if the user chooses to play again
+                
+                // Print a message when the user finishes playing
+                System.out.println("Obrigado por jogar!!!");
+            } else if (defArgSize > 5 && defArgSize <= 9) {
+                System.out.println("Não existem mais puzzles de tamanho " + defArgSize + " para jogar."); // If we don't have the puzzle for that size...
+            } else {
+                System.out.println("O tamanho deve ser um número entre 3 e 9");
+            }
         } else {
             // If no arguments are passed, prompt the user for a puzzle size
             System.out.println("Zero Argumentos Passados (Por favor passe um argumento)");
