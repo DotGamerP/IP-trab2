@@ -610,11 +610,12 @@ public class SumdokuPuzzle{
         // We finally return our result converted to a String
         return result.toString();
     }
-}
 
-/*-------------------NOTE--------------------------
+/*-------------------NOTE 1------------------------
 |                                                 |
 | We are using 'this.<variableName>' for a better |
 |    reading and understanding of the code        |
 |                                                 |
 -------------------------------------------------*/
+
+}
