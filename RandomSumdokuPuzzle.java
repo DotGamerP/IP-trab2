@@ -57,11 +57,11 @@ public class RandomSumdokuPuzzle {
             case 3:
                 this.puzzlesArray = getPuzzlesSize3();  // Get puzzles for size 3
                 break;
+            case 4:
+                this.puzzlesArray = getPuzzlesSize4();  // Get puzzles for size 6
+                break;
             case 5:
                 this.puzzlesArray = getPuzzlesSize5();  // Get puzzles for size 5
-                break;
-            case 6:
-                this.puzzlesArray = getPuzzlesSize6();  // Get puzzles for size 6
                 break;
             default:
                 this.gridSize = 0;  // Invalid size, set puzzlesArray to null
@@ -147,31 +147,29 @@ public class RandomSumdokuPuzzle {
     }
 
     /**
-     * Retrieves the array of 6x6 Sumdoku puzzles.
+     * Retrieves the array of 4x4 Sumdoku puzzles.
      *
-     * @return an array of {@code SumdokuPuzzle} objects for 6x6 grids.
-     * @requires Predefined membership and value arrays for 6x6 puzzles.
+     * @return an array of {@code SumdokuPuzzle} objects for 4x4 grids.
+     * @requires Predefined membership and value arrays for 4x4 puzzles.
      * @ensures A fully initialized array of {@code SumdokuPuzzle} objects is returned.
      */    
-    private SumdokuPuzzle[] getPuzzlesSize6() {
+    private SumdokuPuzzle[] getPuzzlesSize4() {
         int[][][] puzzlesMembership;
         int[][] puzzlesValues;
     
         // Define the membership matrix for the puzzle
         puzzlesMembership = new int[][][] {
-            {
-                {0, 0, 0, 1, 1, 1},
-                {0, 2, 2, 3, 1, 1},
-                {4, 2, 2, 3, 3, 5},
-                {4, 4, 6, 6, 3, 5},
-                {7, 7, 6, 8, 8, 8},
-                {7, 7, 9, 9, 9, 8}
-            }
+        {
+            {0,0,1,1},
+            {2,3,3,4},
+            {2,5,6,6},
+            {7,7,8,8}
+        }
         };
-    
+
         // Define the values for the puzzle
         puzzlesValues = new int[][] {
-            {15, 20, 10, 15, 8, 9, 12, 11, 10, 14}
+        {5,9,7,6,4,8,10,12,3}
         };
     
         // Create an array of SumdokuPuzzle objects based on the length of the membership matrix
