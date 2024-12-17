@@ -1,92 +1,126 @@
+/**
+ * The {@code SumdokuGrid} consists in the class which contains the section of the grid of the game
+ * 
+ * This is the second project of 2024 in IP (Introdução à Programação) on FCUL (Faculdade de Ciências - Universidade de Lisboa)
+ * 
+ * @author Pedro Reinaldo Mendes - nº63729
+ * @author Miguel Cabeça - nº63762
+ * @version 1.0
+ */  
 public class SumdokuGrid {
     private int[][] grid;
     private int size;
 
     /**
-     * Construtor da classe SumdokuGrid.
-     * Inicializa uma grelha vazia com o tamanho especificado.
-     * 
-     * @param gridSize o tamanho da grelha (número de linhas e colunas).
+     * Constructor for the SumdokuGrid class.
+     * Initializes an empty grid with the specified size.
+     *
+     * @param gridSize the size of the grid (number of rows and columns)
+     * @requires {@code gridSize > 0}
      */
-    public SumdokuGrid(int gridSize){
+    public SumdokuGrid(int gridSize) {
+        // Initialize a 2D array to represent the grid
         this.grid = new int[gridSize][gridSize];
+        
+        // Set the grid size
         this.size = gridSize;
     }
     
     /**
-     * Obtém o valor armazenado numa célula específica da grelha.
-     * 
-     * @param row a linha da célula (1-indexada).
-     * @param column a coluna da célula (1-indexada).
-     * @return o valor armazenado na célula especificada.
+     * Gets the value stored in a specific cell of the grid.
+     *
+     * @param row the row of the cell (1-indexed)
+     * @param column the column of the cell (1-indexed)
+     * @return the value stored in the specified cell
+     * @requires {@code row > 0 && row <= size}
+     *           {@code column > 0 && column <= size}
      */
-    public int value(int row,int column){
-        return this.grid[row-1][column-1];
+    public int value(int row, int column) {
+        // Return the value from the specified row and column, adjusting for 0-based indexing
+        return this.grid[row - 1][column - 1];
     }
 
     /**
-     * Preenche uma célula específica da grelha com o valor fornecido.
-     * 
-     * @param row a linha da célula (1-indexada).
-     * @param column a coluna da célula (1-indexada).
-     * @param value o valor a ser inserido na célula.
+     * Fills a specific cell in the grid with the provided value.
+     *
+     * @param row the row of the cell (1-indexed)
+     * @param column the column of the cell (1-indexed)
+     * @param value the value to be inserted into the cell
+     * @requires {@code row > 0 && row <= size}
+     *           {@code column > 0 && column <= size}
      */
-    public void fill(int row,int column,int value){
-        this.grid[row-1][column-1] = value;
+    public void fill(int row, int column, int value) {
+        // Set the value in the specified cell, adjusting for 0-based indexing
+        this.grid[row - 1][column - 1] = value;
     }
 
     /**
-     * Converte a grelha numa representação textual.
-     * As células preenchidas exibem os seus valores, enquanto as células vazias exibem ".".
-     * 
-     * @return uma representação textual da grelha.
+     * Converts the grid into a textual representation.
+     * Filled cells display their values, while empty cells display a ".".
+     *
+     * @return a textual representation of the grid
      */
     public String toString() {
+        // Create a StringBuilder to build the grid's string representation
         StringBuilder output = new StringBuilder();
+        
+        // Get the number of rows and columns in the grid
         int gridSizeRow = this.grid.length;
         int gridSizeColumn = this.grid[0].length;
         
+        // Append the grid's top boundary (if applicable)
         output.append(gridEnds());
+        
+        // Iterate through each cell in the grid
         for (int i = 1; i <= gridSizeRow; i++) {
             for (int j = 1; j <= gridSizeColumn; j++) {
-                if (this.isFilled(i, j)){
-                    output.append(this.value(i, j));
+                // Check if the cell is filled and append the appropriate symbol
+                if (this.isFilled(i, j)) {
+                    output.append(this.value(i, j));  // Append the value if the cell is filled
                 } else {
-                    output.append(".");
+                    output.append(".");  // Append a dot if the cell is empty
                 }
-                output.append(" ");
+                output.append(" ");  // Add space between cells for readability
             }
-            output.append("\n");
-        }    
+            output.append("\n");  // Add a newline after each row
+        }
         
+        // Return the complete string representation of the grid
         return output.toString();
     }
     
     /**
-     * Gera a linha divisória usada na representação textual da grelha.
-     * 
-     * @return uma string que representa a linha divisória da grelha.
+     * Generates the divider line used in the textual representation of the grid.
+     *
+     * @return a string representing the divider line of the grid
      */
-    private String gridEnds(){
+    private String gridEnds() {
+        // Create a StringBuilder to build the divider line
         StringBuilder divider = new StringBuilder();
         
+        // Append the appropriate number of dashes for each column in the grid
         for (int i = 0; i < this.grid.length; i++) {
             divider.append("--");
         }
-
+        
+        // Append a newline at the end of the divider line
         divider.append("\n");
+        
+        // Return the complete divider string
         return divider.toString();
     }
 
     /**
-     * Verifica se uma célula específica da grelha está preenchida.
-     * 
-     * @param row a linha da célula (1-indexada).
-     * @param column a coluna da célula (1-indexada).
-     * @return true se a célula estiver preenchida (valor diferente de 0), false caso contrário.
+     * Checks if a specific cell in the grid is filled.
+     *
+     * @param row the row of the cell (1-indexed)
+     * @param column the column of the cell (1-indexed)
+     * @return {@code true} if the cell is filled (value different from 0), {@code false} otherwise
+     * @requires {@code row > 0 && row <= size}
+     *           {@code column > 0 && column <= size}
      */
-    public boolean isFilled(int row, int column){
-        
+    public boolean isFilled(int row, int column) {
+        // Check if the value in the specified cell is different from 0, indicating it is filled
         return this.grid[row - 1][column - 1] != 0;
     }
 }
