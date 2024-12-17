@@ -56,7 +56,7 @@ public class SumdokuTxt {
                 } while (validToContinue);  // Continue if the user chooses to play again
                 
                 // Print a message when the user finishes playing
-                System.out.println("Obrigado por jogar!!!");
+                System.out.println("Espero que tenhas gostado. Volta sempre!");
             } else {
                 System.out.println("Não existem mais puzzles de tamanho " + defArgSize + " para jogar."); // If we don't have the puzzle for that size...
             }
@@ -75,7 +75,7 @@ public class SumdokuTxt {
      */
     private static boolean askPlayAgain(RandomSumdokuPuzzle puzzleArgs,Scanner reader){     
         // Prompt the user if they want to play again
-        System.out.println("Queres jogar outra vez (true/false):");
+        System.out.print("Queres tentar resolver um novo puzzle (true/false)? ");
         
         // Read the user's response (true/false)
         boolean usrOption = reader.nextBoolean();   
@@ -87,7 +87,7 @@ public class SumdokuTxt {
                 return true;  // Indicate that the game should continue
             } else {
                 // Inform the user there are no more puzzles
-                System.out.println("Não há mais Puzzles para jogar");
+                System.out.println("Não há mais puzzles para jogar");
             }
         }
         // Return false if the user doesn't want to play again or no puzzles are available
@@ -157,7 +157,7 @@ public class SumdokuTxt {
      */
     private static int askSquarePosition(int totalSize,Scanner reader){
         // Pede o numero da casa a preencher
-        System.out.println("Casa a preencher?:");
+        System.out.print("Casa a preencher? ");
         int casa=readIntInInterval(1, totalSize, reader);
         return casa;
     }
@@ -171,7 +171,7 @@ public class SumdokuTxt {
      */
     private static int askValue(int size, Scanner reader){
         //Pede o valor que se quer preencher na casa escolhida
-        System.out.println("Valor da casa a preencher?:");
+        System.out.print("Valor a colocar? ");
         int valor=readIntInInterval(1,size, reader);
         return valor;
     }
@@ -183,34 +183,41 @@ public class SumdokuTxt {
      * @param maxAttempts The maximum number of attempts the player has.
      * @param reader      The Scanner to read user input.
      */
-    private static void play(SumdokuPuzzle puzzle, int maxAttempts,Scanner reader){
+    static void play(SumdokuPuzzle puzzle, int maxAttempts,Scanner reader){
         int size = puzzle.size();
         final int LASTATTEMPT = 1;
         int totalSize=size*size;
         SumdokuGrid playedGrid = new SumdokuGrid(size);
 
-        //Da print as informações das pistas
-        System.out.println("Neste jogo a grelha tem tamanho "+size+" e tens estas pistas:");
-        System.out.println(puzzle.cluesToString());
+        // Welcome message
+        System.out.println("Bem vindo ao jogo Sumdoku!");
+
+        // Print puzzle's clues
+        System.out.println("As pistas do puzzle:");
+        System.out.print(puzzle.cluesToString()); // We don't use a line break at the end to follow the project instructions and tests
         
-        //Itera pelo numero de tentativas que o utilizador tem
+        // Print the attempts to resolve the puzzle
+        System.out.println("Tens " + maxAttempts + " tentativas para o resolver. Boa sorte!");
+
+        //Iterates through the number of attempts the user has
         for (int i = maxAttempts; i >= LASTATTEMPT; i--) {
             //Ask the user for a square position and value.
             int casa = askSquarePosition(totalSize, reader);
             int value = askValue(size, reader);
-            //Define a linha e a coluna da casa escolhida
+            //Define the row and column of the chosen square
             int linha = rowOfSquare(casa, size);
             int coluna = columnOfSquare(casa, size);
-            //Preenche na grelha do utilizador
+            //Fill in the user's grid
             playedGrid.fill(linha, coluna, value);
-            //Escreve como esta a grelha do jogador
-            System.out.println(playedGrid.toString());
+            //Print the current state of the player's grid
+            System.out.print(playedGrid.toString());
         }
-            //verifica se após o puzzle ter sido completado se esta igual ao original
-            if (puzzle.isSolvedBy(playedGrid)) {
-                System.out.println("Ganhaste!!!!!");
-            }else{
-                System.out.println("Tentativas Esgotadas. Tenta outra vez!");
-            }
+        
+        //Check if the completed puzzle matches the original
+        if (puzzle.isSolvedBy(playedGrid)) {
+            System.out.println("Ganhaste!!!!!");
+        }else{
+            System.out.println("Opps, tentativas esgotadas!");
+        }
     }
 }

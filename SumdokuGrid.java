@@ -69,14 +69,16 @@ public class SumdokuGrid {
         int gridSizeColumn = this.grid[0].length;
         
         // Append the grid's top boundary (if applicable)
-        output.append(gridEnds());
+        // output.append(gridEnds());
         
         // Iterate through each cell in the grid
-        for (int i = 1; i <= gridSizeRow; i++) {
-            for (int j = 1; j <= gridSizeColumn; j++) {
+        for (int r = 1; r <= gridSizeRow; r++) {
+            // We add a space before each line (as indicated in the project's instructions)
+            output.append(" ");
+            for (int c = 1; c <= gridSizeColumn; c++) {
                 // Check if the cell is filled and append the appropriate symbol
-                if (this.isFilled(i, j)) {
-                    output.append(this.value(i, j));  // Append the value if the cell is filled
+                if (this.isFilled(r, c)) {
+                    output.append(this.value(r, c));  // Append the value if the cell is filled
                 } else {
                     output.append(".");  // Append a dot if the cell is empty
                 }
@@ -85,6 +87,9 @@ public class SumdokuGrid {
             output.append("\n");  // Add a newline after each row
         }
         
+        // Append the grid's bottom boundary (if applicable)
+        // output.append(gridEnds());
+
         // Return the complete string representation of the grid
         return output.toString();
     }
