@@ -182,7 +182,6 @@ public class SumdokuTxt {
 
         //Da print as informações das pistas
         System.out.println("Neste jogo a grelha tem tamanho "+size+" e tens estas pistas:");
-        System.out.println(puzzle.toString()); //REMOVE ANTES DE ENTREGAR
         System.out.println(puzzle.cluesToString());
         
         //Itera pelo numero de tentativas que o utilizador tem
