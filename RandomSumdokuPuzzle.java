@@ -63,11 +63,9 @@ public class RandomSumdokuPuzzle {
             case 6:
                 this.puzzlesArray = getPuzzlesSize6();  // Get puzzles for size 6
                 break;
-            /*default:
+            default:
                 this.puzzlesArray = null;  // Invalid size, set puzzlesArray to null
                 break;
-                
-                NO NEED IN OUR SITUATION*/
         }
     
         // Shuffle the puzzles array to randomize the order
