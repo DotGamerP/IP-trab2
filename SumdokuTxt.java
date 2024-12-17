@@ -64,6 +64,7 @@ public class SumdokuTxt {
             // If no arguments are passed, prompt the user for a puzzle size
             System.out.println("Zero Argumentos Passados (Por favor passe um argumento)");
         }
+        scanner.close();
     }
     
     /**
