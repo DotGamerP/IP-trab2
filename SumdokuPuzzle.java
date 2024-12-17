@@ -1,10 +1,10 @@
 /**
- * The {@code Sumdoku} consists in the class which contains a big section of the entire project
+ * The {@code SumdokuPuzzle} consists in the class which contains a big section of the entire project
  * 
  * This is the second project of 2024 in IP (Introdução à Programação) on FCUL (Faculdade de Ciências - Universidade de Lisboa)
  * 
  * @author Pedro Reinaldo Mendes - nº63729
- * @author Miguel Cabeça - nºXXXXX
+ * @author Miguel Cabeça - nº63762
  * @version 1.0
  */  
 public class SumdokuPuzzle{
